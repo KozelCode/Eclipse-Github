@@ -18,7 +18,9 @@ public class Rejtjelezes {
 		String uzenet = "helloworld";
 		String kulcs = "abcdefgijkl";
 		String rejtjelezett = rejtjelez(uzenet, kulcs);
-		System.out.println(rejtjelezett);
+		System.out.println("Rejtjelezett üzenet: " + rejtjelezett);
+		String visszafejtett = Visszafejt.visszafejt(rejtjelezett, kulcs);
+		System.out.println("\nVisszafejtett üzenet: " + visszafejtett);
 	}
 	public static String rejtjelez(String uzenet, String kulcs) {
 		String rejt_uzenet = "";
@@ -26,7 +28,7 @@ public class Rejtjelezes {
 			try {
 				rejt_uzenet += Rejtjelezes.numberToChar((Rejtjelezes.charToNumber(uzenet.charAt(i)) + Rejtjelezes.charToNumber(kulcs.charAt(i))) % 27);
 			} catch (Exception e) {
-				System.out.println(e);
+				System.out.println("Exception: " + e);
 			}
 		}
 		return rejt_uzenet;
